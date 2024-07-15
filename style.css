@@ -1,91 +1,355 @@
-//CSS Styling file for the Job Application Form
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Arial", sans-serif;
 }
 
 body {
-  background-color: #ccc;
+  background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  padding: 50px;
 }
+
 .container {
   max-width: 900px;
   margin: 0 auto;
+  padding: 20px;
 }
 
 .apply_box {
   max-width: 600px;
-  padding: 20px;
+  padding: 30px;
   background-color: white;
   margin: 0 auto;
-  margin-top: 50px;
-  box-shadow: 4px 3px 5px rgba(1, 1, 1, 0.1);
-  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  text-align: center;
+  overflow-y: auto;
+  max-height: calc(
+    100vh - 100px
+  ); /* Ensures the box fits within the viewport */
+}
+
+.apply_box h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
 .title_small {
-  font-size: 20px;
+  font-size: 16px;
+  color: #777;
 }
 
 .form_container {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 15px;
 }
+
 .form_control {
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
 label {
-  font-size: 15px;
+  font-size: 14px;
   margin-bottom: 5px;
+  color: #333;
 }
 
 input,
 select,
 textarea {
-  padding: 6px 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 15px;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s;
 }
 
-input:focus {
-  outline-color: red;
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #fda085;
 }
 
 .button_container {
   display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
 
-  justify-content: flex-end;
-  margin-top: 20px;
-}
 button {
-  background-color: red;
-  border: transparent solid 2px;
-  padding: 5px 10px;
+  background-color: #f6d365;
+  border: none;
+  padding: 12px 20px;
   color: white;
-  border-radius: 8px;
-  transition: 0.3s ease-in;
-}
-button:hover {
-  background-color: #ccc;
-  border: 2px solid red;
-  color: black;
-  transition: 0.3s ease-out;
+  font-size: 16px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
+
+button:hover {
+  background-color: #fda085;
+}
+
 .textarea_control {
-  grid-column: 1 / span 2;
+  grid-column: 1 / -1;
 }
+
 .textarea_control textarea {
   width: 100%;
+  resize: vertical;
 }
 
-@media (max-width: 460px) {
-  .textarea_control {
-    grid-column: 1 / span 1;
+@media (min-width: 768px) {
+  .form_container {
+    grid-template-columns: repeat(2, 1fr);
   }
+
+  .textarea_control {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Polka Dot Animation */
+@keyframes polka_move {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, 20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.dot {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: polka_move 3s infinite ease-in-out alternate;
+}
+
+.dot:nth-child(odd) {
+  width: 10px;
+  height: 10px;
+  animation-duration: 2.5s;
+}
+
+.dot:nth-child(even) {
+  width: 20px;
+  height: 20px;
+  animation-duration: 3s;
+}
+
+.dot:nth-child(1) {
+  top: 5%;
+  left: 7%;
+}
+.dot:nth-child(2) {
+  top: 10%;
+  left: 14%;
+}
+.dot:nth-child(3) {
+  top: 15%;
+  left: 21%;
+}
+.dot:nth-child(4) {
+  top: 20%;
+  left: 28%;
+}
+.dot:nth-child(5) {
+  top: 25%;
+  left: 35%;
+}
+.dot:nth-child(6) {
+  top: 30%;
+  left: 42%;
+}
+.dot:nth-child(7) {
+  top: 35%;
+  left: 49%;
+}
+.dot:nth-child(8) {
+  top: 40%;
+  left: 56%;
+}
+.dot:nth-child(9) {
+  top: 45%;
+  left: 63%;
+}
+.dot:nth-child(10) {
+  top: 50%;
+  left: 70%;
+}
+.dot:nth-child(11) {
+  top: 55%;
+  left: 77%;
+}
+.dot:nth-child(12) {
+  top: 60%;
+  left: 84%;
+}
+.dot:nth-child(13) {
+  top: 65%;
+  left: 91%;
+}
+.dot:nth-child(14) {
+  top: 70%;
+  left: 98%;
+}
+.dot:nth-child(15) {
+  top: 75%;
+  left: 5%;
+}
+.dot:nth-child(16) {
+  top: 80%;
+  left: 12%;
+}
+.dot:nth-child(17) {
+  top: 85%;
+  left: 19%;
+}
+.dot:nth-child(18) {
+  top: 90%;
+  left: 26%;
+}
+.dot:nth-child(19) {
+  top: 95%;
+  left: 33%;
+}
+.dot:nth-child(20) {
+  top: 100%;
+  left: 40%;
+}
+.dot:nth-child(21) {
+  top: 5%;
+  left: 47%;
+}
+.dot:nth-child(22) {
+  top: 10%;
+  left: 54%;
+}
+.dot:nth-child(23) {
+  top: 15%;
+  left: 61%;
+}
+.dot:nth-child(24) {
+  top: 20%;
+  left: 68%;
+}
+.dot:nth-child(25) {
+  top: 25%;
+  left: 75%;
+}
+.dot:nth-child(26) {
+  top: 30%;
+  left: 82%;
+}
+.dot:nth-child(27) {
+  top: 35%;
+  left: 89%;
+}
+.dot:nth-child(28) {
+  top: 40%;
+  left: 96%;
+}
+.dot:nth-child(29) {
+  top: 45%;
+  left: 3%;
+}
+.dot:nth-child(30) {
+  top: 50%;
+  left: 10%;
+}
+.dot:nth-child(31) {
+  top: 55%;
+  left: 17%;
+}
+.dot:nth-child(32) {
+  top: 60%;
+  left: 24%;
+}
+.dot:nth-child(33) {
+  top: 65%;
+  left: 31%;
+}
+.dot:nth-child(34) {
+  top: 70%;
+  left: 38%;
+}
+.dot:nth-child(35) {
+  top: 75%;
+  left: 45%;
+}
+.dot:nth-child(36) {
+  top: 80%;
+  left: 52%;
+}
+.dot:nth-child(37) {
+  top: 85%;
+  left: 59%;
+}
+.dot:nth-child(38) {
+  top: 90%;
+  left: 66%;
+}
+.dot:nth-child(39) {
+  top: 95%;
+  left: 73%;
+}
+.dot:nth-child(40) {
+  top: 100%;
+  left: 80%;
+}
+.dot:nth-child(41) {
+  top: 5%;
+  left: 87%;
+}
+.dot:nth-child(42) {
+  top: 10%;
+  left: 94%;
+}
+.dot:nth-child(43) {
+  top: 15%;
+  left: 1%;
+}
+.dot:nth-child(44) {
+  top: 20%;
+  left: 8%;
+}
+.dot:nth-child(45) {
+  top: 25%;
+  left: 15%;
+}
+.dot:nth-child(46) {
+  top: 30%;
+  left: 22%;
+}
+.dot:nth-child(47) {
+  top: 35%;
+  left: 29%;
+}
+.dot:nth-child(48) {
+  top: 40%;
+  left: 36%;
+}
+.dot:nth-child(49) {
+  top: 45%;
+  left: 43%;
+}
+.dot:nth-child(50) {
+  top: 50%;
+  left: 50%;
 }
